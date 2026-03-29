@@ -46,21 +46,23 @@ header > a > #texto_titulo {
 header > .botao_contato > #link_suporte {
     text-decoration: none;
     font-family: Poppins, Arial, Helvetica, sans-serif;
-    color: black;
+    color: rgb(255, 255, 255);
     padding: 6px;
     transition: 0.2s;
     font-weight: 500;
+    background-color: black;
+    border-radius: 10px;
 }
 
-header > .botao_contato {
+header > .botao_contato{
     margin: auto;
     margin-right: 20px;
     padding-top: 13px;
+
 }
 
 header > .botao_contato > #link_suporte:hover {
     background-color: #ff9500;
-    color:white;
     border-radius: 10px;
 }
 
