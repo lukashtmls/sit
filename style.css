@@ -132,7 +132,8 @@ main > #botao_calcular {
 }
 
 main > #botao_calcular:hover {
-    transform: scale(1.067)
+    transform: scale(1.067);
+    box-shadow: 0px 0px 35px #ffa856;
 }
 
 main > #texto_resultado{
