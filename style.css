@@ -17,7 +17,12 @@ header{
     display: flex;
 }
 
-header > #imagem_logo {
+header > a{
+    display:flex;
+    text-decoration: none;
+}
+
+header > a >#imagem_logo {
     margin-left: auto;
     padding-top: 10px;
     width: 70px;
@@ -27,7 +32,7 @@ header > #imagem_logo {
     
 }
 
-header > #texto_titulo {
+header > a > #texto_titulo {
     text-align: center;
     font-family: Poppins, Arial, Helvetica, sans-serif;
     color: #ff9500;
