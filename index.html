@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Calculo de faltas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img id="imagem_logo"src="favicon.png" alt="Logo" name = "imagem_favicon" id = "imagem_favicon">
+
+        <h1 id="texto_titulo">
+            Cálculo de Faltas
+        </h1>
+
+        <a id="link_suporte" href="https://w.app/zaerc6" target="_blank" >
+                Fale conosco
+        </a>
+
+    </header>
+
+    <main>
+
+            <p id="texto_escolha">
+                Escolha qual área você quer saber sobre:
+            </p>
+
+        <div class="input_materias">   
+            <input type="radio" name = "area" value = "matematica" id="input_matematica"> Matemática <br>
+            <input type="radio" name = "area" value = "linguagens" id="input_linguagens"> Linguagens <br>
+            <input type="radio" name = "area" value = "humanas" id="input_humanas"> Humanas <br>
+            <input type="radio" name = "area" value = "natureza" id="input_natureza"> Natureza <br>
+            <input type="radio" name = "area" value = "tecnico" id="input_tecnico"> Técnico <br>
+            <input type="radio" name = "area" value = "pv" id="input_pv"> Projeto de vida <br>
+            <input type="radio" name = "area" value = "pa" id="input_pa"> Projeto do Ano <br>
+            <input type="radio" name = "area" value = "todas" id="input_todas"> Todas as áreas <br>
+        </div>
+
+        <p id="texto_pergunta">
+            Agora digite a sua porcentagem de faltas nessa área:
+        </p>
+
+        <input id="input_porcentagem" type="number"  placeholder="0 a 25" min="0" max="25" step="1" required>
+
+        <button name = "botao_calcular" id = "botao_calcular" onclick = "calcular()">
+            Calcular
+        </button>
+
+            <p id="texto_resultado"></p>
+
+        <hr>
+
+        <p id="texto_creditos">
+            Projeto feito por:
+        </p>
+
+        <div class="fotos">
+            <a href="https://www.instagram.com/joannabaex" target="_blank"><img src="fotos/Joana.jpg" alt="Joana"></a>
+            <a href="https://www.instagram.com/nunes.gui_" target="_blank"><img src="fotos/Gago.jpg" alt="Gago"></a>
+            <a href="https://www.instagram.com/lk.gomesz" target="_blank"><img src="fotos/lk.jpg" alt="Lukas"></a>
+            <a href="https://www.instagram.com/cedi_bruno" target="_blank"><img src="fotos/bruno.jpg" alt="Bruno Ribeiro"></a>
+            <a href="https://www.instagram.com/nicolasyxz7" target="_blank"><img src="fotos/nicolau.jpg" alt="Nicolas"></a>
+            <a href="https://www.instagram.com/bds.bispoo" target="_blank"><img src="fotos/bispo.jpg" alt="Bruno Bispo"></a>
+            <a href="https://www.instagram.com/fr3dmon" target="_blank"><img src="fotos/fred.jpg" alt="Fred"></a>
+       </div>
+
+       <footer>
+        
+        <a href="explicacao.html" id="link_pagina2"><p>Como funciona o cálculo?</p></a>
+        
+       </footer>
+
+        <script>
+        function calcular() {
+
+            var txt = document.getElementById("texto_resultado")
+            var porcentagemInput = document.getElementById("input_porcentagem")
+            var areaSelecionada = document.querySelector('input[name="area"]:checked')
+            if (!areaSelecionada) {
+                txt.style.color = "red"
+                txt.innerHTML = "Selecione uma área!"
+            }
+            var quanto = Number(porcentagemInput.value.replace(",", "."))
+
+            if (isNaN(quanto)) {
+                txt.style.color = "red"
+                txt.innerHTML = "Digite uma porcentagem válida!"
+                return
+            }
+            if (quanto >= 25) {
+                txt.style.color = "red"
+                txt.innerHTML = "Você já atingiu o limite de faltas!"
+                return
+            }
+            var area = areaSelecionada.value
+            var horas = {
+                matematica: 120,
+                linguagens: 200,
+                humanas: 160,
+                natureza: 120,
+                tecnico: 240,
+                pv: 40,
+                pa: 120,
+                todas: 1000,
+            }
+            var totalHoras
+            if (area === "todas") {
+                var somaAulas = 0
+                for (var key in horas) {
+                    var aulas = ((25 - quanto) * horas[key] / 1000) * 60 / 50
+                    somaAulas += aulas
+                }
+                txt.style.color = "#125189"
+                txt.innerHTML = `Você pode faltar ${Math.trunc(aulas)} aulas no total!`
+            }
+            totalHoras = horas[area]
+            if (!totalHoras) {
+                txt.style.color = "#125189"
+                txt.innerHTML = "Área inválida!"
+                return
+            }
+            var aulas = ((25 - quanto) * totalHoras / 100) * 60 / 50
+            txt.style.color = "#125189"
+            txt.innerHTML = `Você pode faltar ${Math.trunc(aulas)} aulas!`
+        }
+    </script>
+    </main>
+</body>
+</html>
