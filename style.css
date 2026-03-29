@@ -52,12 +52,10 @@ header > .botao_contato > #link_suporte {
     font-weight: 500;
 }
 
-
 header > .botao_contato {
     margin: auto;
     margin-right: 20px;
     padding-top: 13px;
-
 }
 
 header > .botao_contato > #link_suporte:hover {
@@ -113,12 +111,13 @@ main > #input_porcentagem{
     border-radius: 13px;
     border-width: 2px;
     border-color: black;
-
+    display: block;
+    margin-bottom: 15px;
 }
 
 main > #botao_calcular {
     background-image: linear-gradient(135deg, #ff9a3c, #ff7a00);
-    width:50%;
+    width:40%;
     padding: 14px;
     margin-bottom:15px;
     color: white;
@@ -128,8 +127,12 @@ main > #botao_calcular {
     font-weight: 600;
     cursor:pointer;
     box-shadow: 0 8px 20px rgba(255,122,0, 0.25);
-    transition: all 0.3 ease;
+    transition: .2s;
     padding: 15px;
+}
+
+main > #botao_calcular:hover {
+    transform: scale(1.067)
 }
 
 main > #texto_resultado{
@@ -146,18 +149,21 @@ main > #texto_creditos{
 
 main > hr {
     width: 90%
-
 }
 
-main > .fotos img {
+main > .fotos {
+    padding-bottom: 13px;
+}
+
+main > .fotos > a > img {
   border-radius: 50%;
   width: 10%; 
   margin-bottom: 20px;
   transition: 0.2s;
 }
 
-main > .fotos img:hover {
-    width:13%;
+main > .fotos > a > img:hover {
+  transform: scale(1.15)
 }
 
 main > #explicao a{
