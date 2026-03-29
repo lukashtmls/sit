@@ -37,10 +37,9 @@ header > a > #texto_titulo {
     font-family: Poppins, Arial, Helvetica, sans-serif;
     color: #ff9500;
     font-weight: 700;
-    margin-top: 20px;
+    margin-top: 28px;
     margin-left: 10px;
-    font-size: 1.6em;
-    padding-top: 6px;
+    font-size: 1.4em;
 }
 
 header > .botao_contato > #link_suporte {
@@ -56,9 +55,8 @@ header > .botao_contato > #link_suporte {
 
 header > .botao_contato{
     margin: auto;
-    margin-right: 20px;
+    margin-right: 5px;
     padding-top: 13px;
-
 }
 
 header > .botao_contato > #link_suporte:hover {
